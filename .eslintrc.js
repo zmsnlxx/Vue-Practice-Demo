@@ -1,29 +1,41 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
-  env: {
-    browser: true,
-  },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
-  ],
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
-  // add your custom rules here
+  env: {browser: true, node: true, es6: true, worker: true},
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
+  parserOptions: {sourceType: 'module', parser: 'babel-eslint', ecmaFeatures: {legacyDecorators: true}},
   rules: {
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
+    "vue/html-end-tags": 'error',
+    "vue/require-prop-types": 'error',
+    "vue/no-multi-spaces": 'error',
+    "vue/no-v-html": 'error',
+    "vue/this-in-template": ['error', "never"],
+    "vue/prop-name-casing": ['error', "camelCase"],
+    "vue/name-property-casing": ['error', "PascalCase"],
+    "vue/html-self-closing": [
+      'error',
+      {
+        html: {void: "never", normal: "always", component: "always"},
+        svg: "always",
+        math: "always"
+      }
+    ],
+    "vue/html-indent": [
+      'error',
+      "tab",
+      {
+        "attribute": 1,
+        "closeBracket": 0,
+        "alignAttributesVertically": true,
+        "ignores": []
+      }
+    ],
+    "vue/attribute-hyphenation": ['error', "always", {ignores: ["custom-prop"]}],
+    "vue/mustache-interpolation-spacing": ['error', "always"],
+    
+    "eqeqeq": ["error", "always"],
+    "arrow-spacing": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+	  'no-unused-vars': 0,
+  },
 }
