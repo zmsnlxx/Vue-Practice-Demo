@@ -1,5 +1,7 @@
 <template>
-	<section class="index"/>
+	<section class="index">
+		<h1>home页面</h1>
+	</section>
 </template>
 
 <script>
@@ -8,21 +10,12 @@
 	
 	@Component
 	export default class Name extends Vue {
-		name = 'lxx'
+		name = 'liux'
 		
 		
 		get userName() {
 			return this.name
 		}
-		
-		getName() {
-			alert(this.userName)
-		}
-		
-		mounted() {
-			this.getName()
-		}
-		
 		
 	}
 </script>
