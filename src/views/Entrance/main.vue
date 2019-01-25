@@ -1,5 +1,11 @@
 <template>
-	<el-main>Main</el-main>
+	<el-main>
+		<el-card class="box-card">
+			<div>
+				lxx
+			</div>
+		</el-card>
+	</el-main>
 </template>
 
 <script>
@@ -13,9 +19,10 @@
 
 <style lang="less" scoped>
 	.el-main {
-		background-color: #E9EEF3;
-		color: #333;
 		text-align: center;
-		line-height: 500px;
+		line-height: 600px;
+		.box-card{
+			background-color: aliceblue;
+		}
 	}
 </style>

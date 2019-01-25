@@ -11,6 +11,8 @@
 		background-color: #eff1f4;
 		font-size: 14px;
 		height: 100%;
+		background: url("./assets/background.jpg");
+		background-size: 100% 100%;
 	}
 	#app{
 		height: 100%;
