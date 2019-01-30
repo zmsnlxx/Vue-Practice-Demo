@@ -1,5 +1,7 @@
 <template>
-
+	<section class="div object">
+		<h1>全局对象</h1>
+	</section>
 </template>
 
 <script>

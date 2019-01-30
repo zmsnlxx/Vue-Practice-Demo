@@ -16,6 +16,8 @@ export default new vuex.Store({
 	},
 	getters: {
 		data: state => state.data.data,
-		user: state => state.user.user
+		user: state => state.user.user,
+		modular: state => state.data.data[0],
+		function:state => state.data.data[1],
 	}
 })

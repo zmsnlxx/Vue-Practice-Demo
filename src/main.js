@@ -4,13 +4,13 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
-import Lib from './lib'
+import util from './util'
 
 // 引入全局组件
 import Components from './components'
 
 Vue.config.productionTip = false
-Vue.use(Lib)
+Vue.use(util)
 //注册全局组件
 Vue.use(Components)
 Vue.use(Element, { size: 'small'})

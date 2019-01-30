@@ -15,13 +15,13 @@
 									<el-table-column
 										prop="index"
 										label="序号"
-										width="180">
-									</el-table-column>
+										width="180"
+									/>
 									<el-table-column
 										prop="name"
 										label="列表"
-										width="180">
-									</el-table-column>
+										width="180"
+									/>
 								</el-table>
 							</el-card>
 						</router-link>

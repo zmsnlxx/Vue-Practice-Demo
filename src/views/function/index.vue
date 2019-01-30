@@ -1,5 +1,7 @@
 <template>
-
+	<section class="div function">
+		<h1>方法总结</h1>
+	</section>
 </template>
 
 <script>

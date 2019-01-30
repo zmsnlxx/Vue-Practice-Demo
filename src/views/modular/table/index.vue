@@ -1,6 +1,6 @@
 <template>
-	<section class="div other">
-		<h1>其他</h1>
+	<section>
+		<h1>table页面</h1>
 	</section>
 </template>
 

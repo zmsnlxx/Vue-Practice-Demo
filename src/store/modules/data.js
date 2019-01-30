@@ -3,32 +3,26 @@ const state = {
 		{
 			router: 'modular',
 			name: '组件封装',
-			background: '',
 			index: 1,
 			childs: [
 				{
-					name: '表单组件',
-					background: '',
-					index: '1-1'
+					label:'表单组件',
+					name: 'table',
+					index: '1-1',
 				},
 				{
-					name: '分页组件',
-					background: '',
-					index: '1-2'
-				}, {
-					name: '表单钻取',
-					background: '',
-					index: '1-3'
+					label:'分页组件',
+					name: 'pagination',
+					index: '1-2',
 				},
 				{
-					name: '表单下载',
-					background: '',
-					index: '1-4'
-				},
-				{
-					name: '表单钻取',
-					background: '',
-					index: '1-5'
+					label:'多选框组件',
+					name: 'MultipleSelection',
+					index: '1-3',
+				},{
+					label:'单选框组件',
+					name: 'SingleElection',
+					index: '1-4',
 				},
 			]
 		},
@@ -53,7 +47,8 @@ const state = {
 					index: '2-3'
 				},
 			]
-		}, {
+		},
+		{
 			router: 'object',
 			name: '全局对象',
 			background: '',

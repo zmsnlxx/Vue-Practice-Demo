@@ -1,5 +1,8 @@
 <template>
 	<el-header>
+		<span class="left" v-if="$route.path !== '/home'" @click="goback">
+			<i class="el-icon-arrow-left"/>
+		</span>
 		<span class="title">个人总结</span>
 		<span class="time">{{ time }}</span>
 	</el-header>
@@ -38,6 +41,10 @@
 				clearInterval(this.timer);//在vue实例销毁钱，清除定时器
 			}
 		}
+		
+		goback(){
+			this.$router.back(-1)
+		}
 	}
 </script>
 
@@ -51,6 +58,15 @@
 		width: 100%;
 		background-color: #37c6c0;
 		text-align: center;
+		.left{
+			height: 60px;
+			line-height: 60px;
+			color: white;
+			position: absolute;
+			left: 20px;
+			font-size: 30px;
+			font-weight: 300;
+		}
 		.title{
 			color: white;
 			line-height: 60px;
