@@ -1,7 +1,7 @@
 <template>
 	<el-header>
 		<span class="title">个人总结</span>
-		<span>{{ time }}</span>
+		<span class="time">{{ time }}</span>
 	</el-header>
 </template>
 
@@ -43,12 +43,25 @@
 
 <style lang="less" scoped>
 	.el-header {
-		background-color: #9dd3fa;
+		position: fixed;
+		z-index: 100;
+		height: 60px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #37c6c0;
 		text-align: center;
-		line-height: 60px;
 		.title{
-			color: blue;
-			font-family: 'Bradley Hand';
+			color: white;
+			line-height: 60px;
+			font-size: 20px;
+		}
+		.time{
+			color: white;
+			line-height: 60px;
+			position: absolute;
+			right: 20px;
+			top: 15px;
 		}
 	}
 </style>
