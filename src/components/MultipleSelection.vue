@@ -1,3 +1,4 @@
+<!-- 多选框组件封装 -->
 <template>
 	<el-row class="checkbox-group" style="padding: 0 0;position: relative">
 		<el-col :span="2" style="line-height: 45px;font-size: 20px">

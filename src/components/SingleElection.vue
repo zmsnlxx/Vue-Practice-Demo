@@ -1,11 +1,12 @@
+<!-- 单选框组件封装 -->
 <template>
 	<el-row class="fx-radio-group" style="position: relative">
-		<el-col style="width: 80px;line-height: 45px;font-size: 20px;">
+		<el-col style="width: 80px;line-height: 45px;font-size: 16px;">
 			{{ label }}：
 		</el-col>
 		<el-col style="width: 980px">
 			<el-radio-group v-model="radio" border size="medium">
-				<el-radio-button style="margin-left: 20px" :label="group" v-for="(group,key) in limitGroup" :key="key">{{ group.name }}</el-radio-button>
+				<el-radio-button :label="group" v-for="(group,key) in limitGroup" :key="key">{{ group.name }}</el-radio-button>
 			</el-radio-group>
 		</el-col>
 		<el-col style="width: 42px;line-height: 45px;position: absolute;right: 0" v-if="$lo.size(radioGroups) > 10">

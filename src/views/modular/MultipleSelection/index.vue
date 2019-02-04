@@ -43,7 +43,6 @@
 		}
 		
 		changeBooks(book){
-			console.log(book)
 			this.currentBook = book
 		}
 	}

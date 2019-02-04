@@ -22,8 +22,8 @@
 		
 		//切换分页
 		changPage({page, pageSize}) {
-			console.log(page)
-			console.log(pageSize)
+			// console.log(page)
+			// console.log(pageSize)
 		}
 	}
 </script>

@@ -17,6 +17,7 @@ export const util = {
 export default {
 	install(Vue) {
 		Vue.prototype.$lo = _
+		Vue.prototype._ = _
 		Vue.prototype.$util = util
 	}
 }

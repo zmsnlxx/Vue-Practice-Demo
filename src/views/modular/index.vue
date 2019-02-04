@@ -40,7 +40,6 @@
 			const contentArr = [tableNav, pagination,MultipleSelection,SingleElection]
 			const arr = []
 			this.$lo.map(this.modular.childs, (item, index) => {
-				console.log(item)
 				const result = {name: item.name, index: index, label: item.label, content: contentArr[index]}
 				arr.push(result)
 			})
