@@ -42,8 +42,8 @@
 		
 		changeClass(e) {
 			this.index = e.id
-			console.log(this.header)
-			console.log(this.body)
+			// console.log(this.header)
+			// console.log(this.body)
 		}
 		
 		
