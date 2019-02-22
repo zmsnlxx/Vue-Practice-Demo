@@ -19,8 +19,8 @@ npm run build --report
 ```
 
 ## 主要依赖：
-
-``` 
+``` bash
+```
 - [Vue](https://cn.vuejs.org/v2/guide/)：基本框架
 
 - [vue-router](https://router.vuejs.org/zh/guide/)：页面路由
