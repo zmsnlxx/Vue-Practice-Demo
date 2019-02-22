@@ -19,20 +19,11 @@ npm run build --report
 ```
 
 ## 主要依赖：
-``` bash
-# [Vue](https://cn.vuejs.org/v2/guide/)：基本框架
-# [vue-router](https://router.vuejs.org/zh/guide/)：页面路由
-npm run dev
 
-# build for production with minification
-npm run build
+``` 
+- [Vue](https://cn.vuejs.org/v2/guide/)：基本框架
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-# 
-- 
+- [vue-router](https://router.vuejs.org/zh/guide/)：页面路由
 
 - [vuex](https://vuex.vuejs.org/zh/guide/)：全局状态、数据流管理
 
@@ -51,9 +42,6 @@ npm run build --report
 - [jszip](https://github.com/Stuk/jszip)：前端压缩文件操作
 
 - [file-saver](https://github.com/eligrey/FileSaver.js)：前端文件导出下载
-
-```
-
 
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
