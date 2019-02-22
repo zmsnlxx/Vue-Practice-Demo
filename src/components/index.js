@@ -3,6 +3,7 @@ import Pagination from './Pagination'
 import MultipleSelection from './MultipleSelection'
 import SingleElection from './SingleElection'
 
+
 export default {
 	install(Vue) {
 		Vue.component('TableView', TableView)

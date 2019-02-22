@@ -42,6 +42,9 @@
 	}
 </script>
 <style lang="less">
+	.entrance{
+		height: 100%;
+	}
 	.div{
 		margin-top: 60px;
 	}

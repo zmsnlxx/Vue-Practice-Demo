@@ -1,5 +1,6 @@
 <template>
 	<el-header>
+		<!-- 如果路由是home,不显示导航条的返回按钮 -->
 		<span class="left" v-if="$route.path !== '/home'" @click="goback">
 			<i class="el-icon-arrow-left"/>
 		</span>
@@ -25,12 +26,15 @@
 				let strDate = that.date.getDate();
 				const hour = that.date.getHours();
 				const minutes = that.date.getMinutes();
-				const seconds = that.date.getSeconds();
+				let seconds = that.date.getSeconds();
 				if (month >= 1 && month <= 9) {
 					month = "0" + month;
 				}
 				if (strDate >= 0 && strDate <= 9) {
 					strDate = "0" + strDate;
+				}
+				if (seconds >= 0 && seconds <= 9) {
+					seconds = "0" + seconds;
 				}
 				that.time = `${year}-${month}-${strDate} ${hour}:${minutes}:${seconds}`;
 			},1000)

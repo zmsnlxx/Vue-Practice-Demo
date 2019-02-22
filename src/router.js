@@ -9,10 +9,10 @@ export default new Router({
 		{
 			path: '/', component: entrance, redirect: {name: 'home'}, children: [
 				{path: 'home', name: 'home', component: () => import('./views/home/index')},
-				{path: 'modular', name: 'modular', component: () => import('./views/modular/index')},
-				{path: 'function', name: 'function', component: () => import('./views/function/index')},
-				{path: 'object', name: 'object', component: () => import('./views/object/index')},
-				{path: 'other', name: 'other', component: () => import('./views/other/index')},
+				{path: 'modular', name: 'modular', component: () => import('./views/home/modular/index')},
+				{path: 'function', name: 'function', component: () => import('./views/home/function/index')},
+				{path: 'object', name: 'object', component: () => import('./views/home/object/index')},
+				{path: 'other', name: 'other', component: () => import('./views/home/other/index')},
 			]
 		},
 	]
