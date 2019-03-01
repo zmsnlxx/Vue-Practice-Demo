@@ -18,7 +18,7 @@
 										width="180"
 									/>
 									<el-table-column
-										prop="name"
+										prop="label"
 										label="列表"
 										width="180"
 									/>

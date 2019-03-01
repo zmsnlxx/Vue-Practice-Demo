@@ -24,11 +24,11 @@ const state = {
 					name: 'SingleElection',
 					index: '1-4',
 				},
-				// {
-				// 	label:'购物车组件',
-				// 	name: 'ShoppingCar',
-				// 	index: '1-5',
-				// },
+				{
+					label:'购物车组件',
+					name: 'ShoppingCar',
+					index: '1-5',
+				},
 			]
 		},
 		{
@@ -38,16 +38,16 @@ const state = {
 			index: 2,
 			childs: [
 				{
-					name: '条件语句转化为遍历筛选',
+					label: '条件语句转化为遍历筛选',
 					background: '',
 					index: '2-1'
 				},
 				{
-					name: '数组累加',
+					label: '数组累加',
 					background: '',
 					index: '2-2'
 				}, {
-					name: '数组值的累加',
+					label: '数组值的累加',
 					background: '',
 					index: '2-3'
 				},
@@ -60,16 +60,16 @@ const state = {
 			index: 3,
 			childs: [
 				{
-					name: '待定',
+					label: '待定',
 					background: '',
 					index: '3-1'
 				},
 				{
-					name: '待定',
+					label: '待定',
 					background: '',
 					index: '3-2'
 				}, {
-					name: '待定',
+					label: '待定',
 					background: '',
 					index: '3-3'
 				},
@@ -82,7 +82,7 @@ const state = {
 			index: 4,
 			childs: [
 				{
-					name: '待定',
+					label: '待定',
 					background: '',
 					index: '4-1'
 				}
