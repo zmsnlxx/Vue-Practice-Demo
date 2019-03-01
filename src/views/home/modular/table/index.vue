@@ -48,12 +48,11 @@
 			this.index = e.id
 		}
 		
-		
+		// 表头
 		get header() {
 			this.tableKey += 1
-			// 一般表格
 			let header = []
-			
+			// 一般表格
 			if (this.index === 0) {
 				header = [
 					{label: "英雄", prop: 'name', fixed: true, minWidth: 70, show: true},
@@ -78,7 +77,24 @@
 					}
 				]
 			}
-			if(this.index === 2){
+			// 数据钻取
+			if (this.index === 2) {
+				header = [
+					{label: "英雄", prop: 'name', fixed: true, minWidth: 70, show: true},
+					{label: "定位", prop: 'location', fixed: true, minWidth: 90, show: true},
+					{label: "介绍", prop: 'desc', fixed: true, minWidth: 70, show: true},
+					{
+						label: '技能', childs: [
+							{label: 'q技能', prop: 'q'},
+							{label: 'w技能', prop: 'w'},
+							{label: 'e技能', prop: 'e'},
+							{label: 'r技能', prop: 'r'},
+						]
+					}
+				]
+			}
+			// 双重数据钻取
+			if (this.index === 3) {
 				header = [
 					{label: "英雄", prop: 'name', fixed: true, minWidth: 70, show: true},
 					{label: "定位", prop: 'location', fixed: true, minWidth: 90, show: true},
@@ -97,8 +113,10 @@
 			return header
 		}
 		
+		// 表格内容
 		get body() {
 			let bodyArr = []
+			// 一般表格
 			if (this.index === 0) {
 				bodyArr = [
 					{name: '德莱厄斯', location: '战士', gender: '男性英雄', desc: '诺克萨斯之手'},
@@ -107,45 +125,45 @@
 					{name: '卡蜜尔', location: '战士', gender: '女性英雄', desc: '青钢影'},
 				]
 			}
+			// 多级表头
 			if (this.index === 1) {
 				bodyArr = [
-					{name: '德莱厄斯', location: '战士',desc: '诺克萨斯之手', q: '大杀四方', w: '致残打击', e: '无情铁手', r: '诺克萨斯断头台'},
-					{name: '德莱文', location: '射手',desc: '荣耀行刑官', q: '旋转飞斧', w: '血腥冲刺', e: '开道利斧', r: '冷血追命'},
-					{name: '雷克顿', location: '战士',desc: '荒漠屠夫', q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
-					{name: '卡蜜尔', location: '战士',desc: '青钢影', q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
+					{name: '德莱厄斯', location: '战士', desc: '诺克萨斯之手', q: '大杀四方', w: '致残打击', e: '无情铁手', r: '诺克萨斯断头台'},
+					{name: '德莱文', location: '射手', desc: '荣耀行刑官', q: '旋转飞斧', w: '血腥冲刺', e: '开道利斧', r: '冷血追命'},
+					{name: '雷克顿', location: '战士', desc: '荒漠屠夫', q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
+					{name: '卡蜜尔', location: '战士', desc: '青钢影', q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
 				]
 			}
-			if(this.index === 2){
+			// 数据钻取
+			if (this.index === 2) {
 				bodyArr = [
-					{name: '德莱厄斯', location: '战士',desc: '诺克萨斯之手',class:{value:3,drilling:{name:'lxx'}}, q: '大杀四方', w: '致残打击', e: '无情铁手', r: '诺克萨斯断头台'},
-					{name: '德莱文', location: '射手',desc: '荣耀行刑官',class:{value:3,drilling:{name:'lxx'}}, q: '旋转飞斧', w: '血腥冲刺', e: '开道利斧', r: '冷血追命'},
-					{name: '雷克顿', location: '战士',desc: '荒漠屠夫',class:{value:3,drilling:{name:'lxx'}}, q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
-					{name: '卡蜜尔', location: '战士',desc: '青钢影',class:{value:3,drilling:{name:'lxx'}}, q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
+					{name: {type: 'link', value: '德莱厄斯', id: 'Darius'}, location: '战士', desc: '诺克萨斯之手', q: '大杀四方', w: '致残打击', e: '无情铁手', r: '诺克萨斯断头台'},
+					{name: {type: 'link', value: '德莱文', id: 'Draven'}, location: '射手', desc: '荣耀行刑官', q: '旋转飞斧', w: '血腥冲刺', e: '开道利斧', r: '冷血追命'},
+					{name: {type: 'link', value: '雷克顿', id: 'Renekton'}, location: '战士', desc: '荒漠屠夫', q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
+					{name: {type: 'link', value: '卡蜜尔', id: 'Camille'}, location: '战士', desc: '青钢影', q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
+				]
+			}
+			// 双重数据钻取
+			if (this.index === 3) {
+				bodyArr = [
+					{name: '德莱厄斯', location: '战士', desc: '诺克萨斯之手',class: this.makeDrilling(4,'warrior','战士'), q: '大杀四方', w: '致残打击', e: '无情铁手', r: '诺克萨斯断头台'},
+					{name: '德莱文', location: '射手', desc: '荣耀行刑官',class: this.makeDrilling(4,'shooter','射手'),  q: '旋转飞斧', w: '血腥冲刺', e: '开道利斧', r: '冷血追命'},
+					{name: '布兰德', location: '法师', desc: '复仇火焰',class: this.makeDrilling(5,'mage','法师'),  q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
+					{name: '蕾欧娜', location: '坦克', desc: '太阳女神',class: this.makeDrilling(6,'tank','坦克'), q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
 				]
 			}
 			return bodyArr
 		}
 		
-		makeDrilling(value, studentKeys) {
+		makeDrilling(value, query,desc) {
 			return {
 				value,
 				drilling: {
-					once: true,
 					header: this.drillingHeader,
-					formatData: students => {
-						return this.$lo.map(students, student => {
-							this.$lo.each(student.subjectRank, (subject, pindex) => {
-								if (pindex === 'totalScore') return student[pindex] = subject.score
-								student[pindex] = {
-									type: 'link',
-									name: 'pictureView',
-									value: subject.score,
-									query: {examid: this.examInfo.id, from: this.examInfo.from, grade: this.examInfo.grades, skey: student.key, pindex}
-								}
-							})
-							student.school = this.examInfo.tgKeys[student.school]
-							return student
-						})
+					description: `${desc}类型的英雄共有${value}个`,
+					params: {
+						key:query,
+						total:value,
 					},
 				},
 			}

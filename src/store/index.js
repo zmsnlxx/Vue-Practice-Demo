@@ -19,5 +19,6 @@ export default new vuex.Store({
 		user: state => state.user.user,
 		modular: state => state.data.data[0],
 		function:state => state.data.data[1],
+		shoppingData: state => state.data.shoppingData.data.productList,
 	}
 })

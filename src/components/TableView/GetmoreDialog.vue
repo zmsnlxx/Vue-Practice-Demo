@@ -1,7 +1,7 @@
 <template>
 	<section class="getmore-dialog">
 		<el-dialog :visible.sync="innerVisible" width="65%" title="英雄名单详情">
-			<table-view :data="drilling.once ? newTableData : tableData" :download-data="makeDownloadData" :header="tableHeader" :loading="tableLoading" :name="name" :sort="0">
+			<table-view :data="tableData" :download-data="makeDownloadData" :header="tableHeader" :loading="tableLoading" :name="name" :sort="0">
 				<section v-if="description" slot="description">
 					<span>{{ description }}</span>
 				</section>
@@ -28,66 +28,69 @@
 		pageSize = 10
 		
 		
-		get newTableData(){
-			return this.tableData.slice((this.no - 1) * this.pageSize , this.no * this.pageSize)
-		}
-		
 		created() {
 			// 监听visible
 			this.$watch('visible', val => {
 				// 因为子组件不可以更改接收到的参数，所以在子组件内部声明变量来记录visible，用来控制弹框显示与隐藏
 				this.innerVisible = val
 				if (val) {
+					console.log(this.drilling)
 					this.tableHeader = this.drilling.header
-					this.changePage()
+					this.fetchData()
 				}
-				if (!val && this.$refs.pagination) setTimeout(() => {
-					this.$refs.pagination.pageNo = 1
-					this.$refs.pagination.pageSize = 10
-					this.tableLoading = true
-					if(this.drilling.once === true){
-						this.tableData = []
-						this.no = 1
-						this.pageSize = 10
-					}
-				}, 300)
 			}, {immediate: true})
 			this.$watch('innerVisible', val => !val && this.$emit('update:visible', val))
 		}
 		
-		async fetchData(pageParams = {page: this.no, pageSize: this.pageSize}, target) {
+		async fetchData() {
 			this.tableLoading = true
-			const {params, fetch, formatData, description, name} = this.drilling
-			this.name = name
+			const {params, description} = this.drilling
 			this.description = description
 			this.total = params.total
-			params.data = this.$lo.assign(params.data, pageParams)
-			
-			const data = await fetch.post(params.data, {params: params.query})
-			if (this.$lo.isEmpty(data) && this.visible) setTimeout(() => this.fetchData(), 300)
-			
-			const tableData = formatData ? formatData(data) : this.formatData(data)
-			
-			if (target !== 'download') {
-				this.tableData = tableData
-				if (!this.$lo.isEmpty(this.tableData)) this.tableLoading = false
-			} else {
+			this.tableData = this.getData(params.key)
+			setTimeout(() => {
 				this.tableLoading = false
-				return tableData
-			}
+			},1000)
 		}
 		
 		changePage(pageParams = {page: 1, pageSize: 10}){
-			if(!this.drilling.once) return this.fetchData(pageParams)
-			if(this.$lo.isEmpty(this.tableData)) return this.fetchData()
-			this.no = pageParams.page
-			this.pageSize = pageParams.pageSize
+		
 		}
 		
-		formatData(data) {
-			if (Array.isArray(data)) return data
-			
-			return this.$lo.toArray(data)
+		// 模拟请求接口操作
+		getData(id){
+			if(id === 'warrior'){
+				return [
+					{name: {type: 'link', value: '雷克顿', id: 'Renekton'}, location: '战士', desc: '荒漠屠夫', q: '暴君狂击', w: '冷酷捕猎', e: '横冲直撞', r: '终极统治'},
+					{name:  {type: 'link', value: '卡蜜尔', id: 'Camille'},location: '战士', desc: '青钢影', q: '精准礼仪', w: '战术横扫', e: '钩索', r: '海克斯最后通牒'},
+					{name:  {type: 'link', value: '盖伦', id: 'Garen'}, location: '战士', desc: '德玛西亚治理', q: '致命打击', w: '勇气', e: '审判', r: '德玛西亚正义'},
+					{name: {type: 'link', value: '科加斯', id: 'Chogath'}, location: '战士', desc: '虚空恐惧', q: '破裂', w: '野性尖叫', e: '恐惧之刺', r: '盛宴'},
+				]
+			}else if(id === 'shooter'){
+				return [
+					{name: {type: 'link', value: '卡莉斯塔', id: 'Kalista'}, location: '射手', desc: '复仇之矛', q: '穿刺', w: '哨兵', e: '撕裂', r: '命运的召唤'},
+					{name:  {type: 'link', value: '图奇', id: 'Twitch'},location: '射手', desc: '瘟疫之源', q: '埋伏', w: '剧毒之桶', e: '毒性爆发', r: '火力全开'},
+					{name:  {type: 'link', value: '卡莎', id: 'Kaisa'}, location: '射手', desc: '虚空之女', q: '艾卡西亚暴雨', w: '虚空索敌', e: '极限超载', r: '猎手本能'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+				]
+			}else if(id === 'mage'){
+				return [
+					{name: {type: 'link', value: '卡莉斯塔', id: 'Kalista'}, location: '射手', desc: '复仇之矛', q: '穿刺', w: '哨兵', e: '撕裂', r: '命运的召唤'},
+					{name:  {type: 'link', value: '图奇', id: 'Twitch'},location: '射手', desc: '瘟疫之源', q: '埋伏', w: '剧毒之桶', e: '毒性爆发', r: '火力全开'},
+					{name:  {type: 'link', value: '卡莎', id: 'Kaisa'}, location: '射手', desc: '虚空之女', q: '艾卡西亚暴雨', w: '虚空索敌', e: '极限超载', r: '猎手本能'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+				]
+			}else if(id === 'tank'){
+				return [
+					{name: {type: 'link', value: '卡莉斯塔', id: 'Kalista'}, location: '射手', desc: '复仇之矛', q: '穿刺', w: '哨兵', e: '撕裂', r: '命运的召唤'},
+					{name:  {type: 'link', value: '图奇', id: 'Twitch'},location: '射手', desc: '瘟疫之源', q: '埋伏', w: '剧毒之桶', e: '毒性爆发', r: '火力全开'},
+					{name:  {type: 'link', value: '卡莎', id: 'Kaisa'}, location: '射手', desc: '虚空之女', q: '艾卡西亚暴雨', w: '虚空索敌', e: '极限超载', r: '猎手本能'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+					{name: {type: 'link', value: '微恩', id: 'Vayne'}, location: '射手', desc: '暗夜猎手', q: '闪避突袭', w: '圣银弩箭', e: '恶魔审判', r: '终极时刻'},
+				]
+			}
 		}
 		
 		async makeDownloadData() {

@@ -23,6 +23,7 @@
 	
 	
 	
+	
 	@Component({components: {tableNav, pagination,MultipleSelection,SingleElection}})
 	export default class Name extends Vue {
 		@Getter modular

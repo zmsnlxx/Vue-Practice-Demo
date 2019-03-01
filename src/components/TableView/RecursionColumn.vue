@@ -32,9 +32,12 @@
 			-->
 			<section v-if="row[item.prop] && row[item.prop].type">
 				<!-- 如果row数据的type==='link' 跳转的新的页面 -->
-				<router-link v-if="row[item.prop].type === 'link'" target="_blank" :to="{path:'./home'}">
+				<!--<router-link v-if="row[item.prop].type === 'link'" target="_blank" :to="{path:'./home'}">-->
+					<!--<el-button type="text">{{ row[item.prop].value }}</el-button>-->
+				<!--</router-link>-->
+				<a v-if="row[item.prop].type === 'link'" target="_blank" :href="'http://lol.qq.com/web201310/info-defail.shtml?id=' + row[item.prop].id">
 					<el-button type="text">{{ row[item.prop].value }}</el-button>
-				</router-link>
+				</a>
 			</section>
 			
 			<section v-else>
