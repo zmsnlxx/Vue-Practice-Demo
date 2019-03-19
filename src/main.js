@@ -11,7 +11,6 @@ import Components from './components'
 
 Vue.config.productionTip = false
 Vue.use(util)
-//注册全局组件
 Vue.use(Components)
 Vue.use(Element, { size: 'small'})
 

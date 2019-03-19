@@ -55,8 +55,8 @@
 			// 一般表格
 			if (this.index === 0) {
 				header = [
-					{label: "英雄", prop: 'name', fixed: true, minWidth: 70, show: true},
-					{label: "定位", prop: 'location', fixed: true, minWidth: 90, show: true},
+					{label: "英雄", prop: 'name', fixed: true, minWidth: 70,},
+					{label: "定位", prop: 'location', fixed: true, minWidth: 90, },
 					{label: "性别", prop: 'gender', fixed: true, minWidth: 90, show: true},
 					{label: "介绍", prop: 'desc', fixed: true, minWidth: 70, show: true},
 				]
