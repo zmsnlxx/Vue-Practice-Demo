@@ -11,6 +11,7 @@
 			:key="tableKey"
 			:data="body"
 			collapse
+			
 		/>
 	</section>
 </template>
